@@ -1,0 +1,16 @@
+{
+  "name": "studious-umbrella",
+  "version": "1.0.0",
+  "description": "studious umbrella backend",
+  "keywords": [
+    "backend",
+    "shrnx"
+  ],
+  "license": "ISC",
+  "author": "Gurusharan Sahu",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
