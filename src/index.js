@@ -23,6 +23,24 @@ const io = new Server(server, {    // Initialize Socket.IO with the Express serv
 io.on("connection", (socket) => {
     console.log("A user connected:", socket.id);
 
+    socket.on("join-room", (roomId) => {        // This will allow users to join same virtual room
+        socket.join(roomId);
+        console.log(`User ${socket.id} joined room ${roomId}`);
+    });
+    
+    socket.on("play-video", (roomId) => {
+        socket.to(roomId).emit("play-video");
+    });
+    
+    socket.on("pause-video", (roomId) => {
+        socket.to(roomId).emit("pause-video");
+    });
+    
+    socket.on("seek-video", ({ roomId, time }) => {
+        socket.to(roomId).emit("seek-video", time);
+    });
+    
+
     socket.on("disconnect", () => {
         console.log("User disconnected:", socket.id);
     });
