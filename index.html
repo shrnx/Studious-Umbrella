@@ -1,0 +1,23 @@
+<!-- test.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket.IO Test</title>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+  <h1>Testing Socket.IO Connection</h1>
+
+  <script>
+    const socket = io("http://localhost:8000");
+
+    socket.on("connect", () => {
+      console.log("Connected to server with ID:", socket.id);
+    });
+
+    socket.on("disconnect", () => {
+      console.log("Disconnected from server");
+    });
+  </script>
+</body>
+</html>
